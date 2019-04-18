@@ -1,0 +1,33 @@
+/* pages/addReport/addReport.wxss */
+@import "/pages/weui/base/reportList.wxss";
+.report-list{
+  padding-top:12rpx;
+}
+.report-box .report-icon{
+  width:auto;
+  font-size:26rpx;
+  padding:9rpx 10rpx 9rpx 20rpx;
+} 
+.report-box .report-icon .open_status{
+  padding-right:20rpx;
+  color:#999;
+}
+.report-box .report-icon .report-open{
+  width:120rpx;
+  height:60rpx;
+  font-size:24rpx;
+  vertical-align: middle
+}
+/* .report-box .report-icon .imageIcon{
+  width:40rpx;
+}  */
+
+.report-null{
+  background-color: #fff;
+  padding-top:40rpx;
+  padding-bottom:40rpx;
+}
+.userInfo-bind-btn{
+  width:480rpx;
+  font-size:40rpx;
+}

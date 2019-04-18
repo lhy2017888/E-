@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "报表详情",
+  "usingComponents": {
+    "swiper-component":"../components/swiper/swiper",
+    "order-component": "../components/order/order"
+  }
+}

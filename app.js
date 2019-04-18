@@ -1,39 +1,109 @@
-//app.js
+const WXAPI = require('wxapi/main')
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
+  navigateToLogin: false,
+  bingedEz: false,
+  onLaunch: function() {
+    const that = this;
+    // 检测新版本
+    const updateManager = wx.getUpdateManager()
+    updateManager.onUpdateReady(function() {
+      wx.showModal({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        success(res) {
+          if (res.confirm) {
+            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+            updateManager.applyUpdate()
+          }
+        }
+      })
     })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
+    /**
+     * 初次加载判断网络情况
+     * 无网络状态下根据实际情况进行调整
+     */
+    wx.getNetworkType({
+      success(res) {
+        const networkType = res.networkType
+        if (networkType === 'none') {
+          that.globalData.isConnected = false
+          wx.showToast({
+            title: '当前无网络',
+            icon: 'loading',
+            duration: 2000
           })
         }
       }
-    })
+    });
+    /**
+     * 监听网络状态变化
+     * 可根据业务需求进行调整
+     */
+    wx.onNetworkStatusChange(function(res) {
+      if (!res.isConnected) {
+        that.globalData.isConnected = false
+        wx.showToast({
+          title: '网络已断开',
+          icon: 'loading',
+          duration: 2000,
+          complete: function() {
+            that.goStartIndexPage()
+          }
+        })
+      } else {
+        that.globalData.isConnected = true
+        wx.hideToast()
+      }
+    });
+    // 判断是否登录
+    let openId = wx.getStorageSync('openId');
+    if (!openId) {
+      that.goLoginPageTimeOut()
+      return
+    } else {
+      const loginSession = wx.getStorageSync('loginSession')
+      if (!loginSession) {
+        that.goBindEzTimeOut()
+        return
+      }
+      that.bingedEz = true;
+      WXAPI.refreshloginsession(openId).then(function(res) {
+        if (res.code == 0) {
+          wx.setStorageSync('loginSession', res.Body.loginsession)
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: res.error,
+            showCancel: false
+          })
+        }
+      })
+
+    }
+  },
+  goLoginPageTimeOut: function() {
+    this.navigateToLogin = true
+    setTimeout(function() {
+      wx.navigateTo({
+        url: "/pages/login/login"
+      })
+    }, 1000)
+  },
+  goBindEzTimeOut: function() {
+    setTimeout(function() {
+      wx.navigateTo({
+        url: "/pages/bindEz/bindEz"
+      })
+    }, 1000)
+  },
+  goStartIndexPage: function() {
+    setTimeout(function() {
+      wx.redirectTo({
+        url: "/pages/login/login"
+      })
+    }, 1000)
   },
   globalData: {
-    userInfo: null
+    isConnected: true
   }
 })

@@ -1,0 +1,59 @@
+/* pages/bindEz/bindEz.wxss */
+page{
+  background-color: #fff;
+}
+.section{
+  width:640rpx;
+  margin:60rpx auto;
+  border-radius: 20rpx;
+  background: #fff;
+  border:1px solid #ddd;
+  position: relative;
+}
+.section .queryImg{
+  position: absolute;
+  font-size:24rpx;
+  top:30rpx;
+  right:22rpx;
+  z-index: 9;
+  width:160rpx;
+  height:50rpx;
+  line-height: 50rpx;
+}
+.section input{
+  height:100rpx;
+  padding:0 30rpx;
+  font-size:30rpx;
+  border-bottom:1rpx solid #ddd;
+}
+.section input:last-of-type{
+  border:none;
+}
+.btn-submit{
+  width:600rpx;
+  font-size:40rpx;
+  background-color: #1aad19;
+  color:#fff;
+}
+.btn-submit.gray{
+  background-color: #bbb;
+}
+.advert-wrap{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+.cancelImg{
+  width:70rpx;
+  position:absolute;
+  top:50rpx;
+  right:30rpx;
+  z-index: 999
+}
+.advertImg{
+  width:100%;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 99;
+}

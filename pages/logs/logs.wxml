@@ -1,4 +1,27 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  111111
+<view class='container userInfo'>
+  <view class='phone-img'>
+    <image class='avatarUrl' wx:if="{{userInfo && userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" background-size="cover" mode="widthFix" />
+    <text class='nickName'>{{ userInfo.nickName }}</text>
+  </view>
+  <view class='userInfo-bind'>
+    <view class='userInfo-binded' wx:if="{{bingedEz}}">
+      <image class='ezhuImage' src='/images/72.png' mode='widthFix' />
+      <text class='username'>用户名：{{bindUser}}（CID：{{bindCid}}）</text>
+      <button class='outBind' bindtap='bindOut'>解绑</button>
+    </view>
+    <view class='userInfo-rebind' wx:else>
+      <button class='userInfo-bind-btn' bindtap='bindEz' type='primary'>微信绑定E助</button>
+    </view>
+  </view>
+  <view class='userInfo-list'>
+    <view class='aboutUs' bindtap='aboutUs'>
+      <image class='aboutUs-image' src='/images/home-on.png' mode="widthFix" />
+      <text class='username'>关于我们</text>
+      <image class='aboutUs-icon' src='/images/arrow-right.png' mode="widthFix" />
+    </view>
+  </view>
+  <view class='userInfo-bottom'>
+    <text>维思德软件4000-820-700</text>
+  </view>
 </view>

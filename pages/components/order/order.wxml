@@ -1,0 +1,52 @@
+<!--pages/components/order/order.wxml-->
+<view class='report-box'>
+  <view class='report-title'>
+    <view class='report-text'>订单量</view>
+    <view class='report-datail'>
+      <text>总计：</text>
+      <text class='number'>{{reportAllN}}</text>
+    </view>
+  </view>
+  <view class="table">
+    <view class="table-tr flxed">
+      <view class="table-th tdWid">
+        <view>店铺名</view>
+      </view>
+      <view class="table-th flextd">
+        <view>待发未审</view>
+        <view class='num'>（<text class='clo'>{{tradeQtyAll}}</text>）</view>
+      </view>
+      <view class="table-th flextd">
+        <view>未打印</view>
+        <view class='num'>（<text class='clo'>{{noExpQtyAll}}</text>）</view>
+      </view>
+      <view class="table-th flextd">
+        <view>未验货</view>
+        <view class='num'>（<text class='clo'>{{scanQtyAll}}</text>）</view>
+      </view>
+      <view class="table-th flextd">
+        <view>未发货</view>
+        <view class='num'>（<text class='clo'>{{sendedQtyAll}}</text>）</view>
+      </view>
+    </view>
+    <block wx:for='{{reportArray}}' wx:key='this'>
+      <view class="table-tr">
+        <view class="table-td tdWid">
+          <text>{{item.shopName}}</text>
+        </view>
+        <view class="table-td flextd">
+          <text>{{item.tradeQty}}</text>
+        </view>
+        <view class="table-td flextd">
+          <text>{{item.noExpQty}}</text>
+        </view>
+        <view class="table-td flextd">
+          <text>{{item.scanQty}}</text>
+        </view>
+        <view class="table-td flextd">
+          <text>{{item.sendedQty}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

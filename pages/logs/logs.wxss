@@ -1,8 +1,85 @@
-.log-list {
+.phone-img{
+  padding:50rpx 30rpx 50rpx 50rpx;
+  height:160rpx;
+  line-height: 160rpx;
+  background-color: #fff;
+}
+.phone-img .avatarUrl{
+  width: 160rpx;
+	height: 160rpx;
+  border-radius: 100%;
+  vertical-align: middle
+}
+.phone-img .nickName{
+  font-size: 36rpx;
+  margin-left:30rpx;
+}
+.userInfo-bind{
+  margin-top:15rpx;
+  height:180rpx;
+  line-height: 180rpx;
+  background-color: #fff;
+  border-bottom:1rpx solid #f2f2f2;
+}
+.userInfo-rebind{
+  padding-top:40rpx;
+}
+.userInfo-bind-btn{
+  width:480rpx;
+  font-size:40rpx;
+}
+.userInfo-binded{
+  padding-left:30rpx;
+  position: relative;
+}
+.userInfo-binded .ezhuImage{
+  width:100rpx;
+  vertical-align: middle
+}
+.userInfo-binded .username{
+  font-size:30rpx;
+  margin-left:20rpx;
+}
+.userInfo-binded .outBind{
+  width:130rpx;
+  height:70rpx;
+  font-size: 30rpx;
+  vertical-align: middle;
+  position: absolute;
+  right:30rpx;
+  top:60rpx;
+}
+.userInfo-list{
+  background-color: #fff;
+}
+.userInfo-list .aboutUs{
+  height:100rpx;
+  line-height: 100rpx;
+  padding-left:50rpx;
+  border-bottom:1rpx solid #f2f2f2;
+  position: relative;
+}
+.userInfo-list .aboutUs .aboutUs-image{
+  width:30rpx;
+  margin-right:30rpx;
+}
+.userInfo-list .aboutUs .username{
+  font-size:34rpx;
+}
+.userInfo-list .aboutUs .aboutUs-icon{
+  width:22rpx;
+  position: absolute;
+  right:40rpx;
+  top:34rpx;
+}
+.userInfo-bottom{
+  box-sizing: border-box;
+  height:517rpx;
+  padding-bottom:10rpx;
   display: flex;
   flex-direction: column;
-  padding: 40rpx;
-}
-.log-item {
-  margin: 10rpx;
+  justify-content:flex-end;
+  font-size:30rpx;
+  color:#999;
+  text-align: center;
 }

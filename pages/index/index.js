@@ -6,49 +6,65 @@ const app = getApp()
 
 Page({
   data: {
-    // indicatorDots: true,
-    autoplay: true,
-    interval: 3000,
-    duration: 1000,
+    tableList: []
   },
-  //事件处理函数
-  swiperchange: function(e) {
-    // console.log(e.detail.current)
-    this.setData({
-      swiperCurrent: e.detail.current
+  addReport() {
+    wx.navigateTo({
+      url: '../../pages/addReport/addReport'
     })
   },
-  tapBanner: function(e) {
-    if (e.currentTarget.dataset.id != 0) {
+  reportDetail(e) {
+    let title = e.currentTarget.dataset.title
+    let id = e.currentTarget.dataset.id
+    if(id==2){
       wx.navigateTo({
-        url: "/pages/goods-details/index?id=" + e.currentTarget.dataset.id
+        url: '/pages/eChart/eChart?id=' + id + '&title=' + title
       })
+      return
+    }
+    wx.navigateTo({
+      url: '../../pages/reportDatail/reportDatail?id=' + id+'&title='+title
+    })
+  },
+  bindEz() {
+    wx.navigateTo({
+      url: '/pages/bindEz/bindEz'
+    })
+  },
+  onShow: function() {
+    let that = this
+    let bingedEz = app.bingedEz
+    that.setData({
+      bingedEz: bingedEz
+    })
+    let loginSession = wx.getStorageSync('loginSession')
+    if (loginSession) {
+      let openId = wx.getStorageSync('openId')
+      WXAPI.reportList(openId, 'open').then(function(res) {
+        if (res.code == 0) {
+          that.setData({
+            tableList: res.Body.items
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: res.error,
+            showCancel: false
+          })
+        }
+      })
+    }else{
+      return
     }
   },
-  onLoad: function() {
-    var that = this;
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync('mallName'),
-    })
-    WXAPI.banners({
-      type: 'index'
-    }).then(function(res) {
-      if (res.code == 700) {
-        wx.showModal({
-          title: '提示',
-          content: '请在后台添加 banner 轮播图片，自定义类型填写 index',
-          showCancel: false
-        })
-      } else {
-        that.setData({
-          banners: res.data
-        })
+  onShareAppMessage: function() {
+    console.log(222)
+    wx.getShareInfo({
+      shareTicket: 'aaa',
+      success: function() {
+        console.log(111)
       }
-    }).catch(function(e){
-      wx.showToast({
-        title: e.msg,
-        icon:'none'
-      })
     })
   }
+
 })

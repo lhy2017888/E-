@@ -1,0 +1,19 @@
+<!--pages/bindEz/bindEz.wxml-->
+<view class='advert-wrap' wx:if='{{advertImg}}'>
+  <image class='cancelImg' bindtap='cancelImg' mode='widthFix' src='/images/cancel.png' />
+  <image class='advertImg' mode='widthFix' src='/images/advertImg.png' />
+</view>
+<view class='container'>
+  <form bindsubmit="formSubmit">
+    <view class="section">
+      <!-- <image class='queryImg' mode='widthFix' bindtap='showImg' src='/images/showImg.png' /> -->
+      <button class='queryImg' type='primary' bindtap='showImg' plain='false'>查看CID</button>
+      <input name="inputCID" type='text' placeholder="请输入CID号" />
+      <input name="inputName" type='text' placeholder="请输入E助用户名" />
+      <input name="inputSecret" password type='text' placeholder="请输入E助密码" />
+    </view>
+    <view class="btn-area">
+      <button class='btn-submit {{buttonColor? "gray":""}}' formType="submit">确定</button>
+    </view>
+  </form>
+</view>

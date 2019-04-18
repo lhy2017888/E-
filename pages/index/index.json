@@ -1,5 +1,7 @@
 {
   "enablePullDownRefresh": true,
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "E助WMS报表"
+  "navigationBarTitleText": "E助微报表",
+  "usingComponents": {
+    "swiper-component": "../components/swiper/swiper"
+  }
 }

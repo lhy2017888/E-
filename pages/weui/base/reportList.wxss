@@ -1,0 +1,49 @@
+.report-container{
+  width:100%;
+  height:auto;
+  box-sizing: border-box;
+  padding:0 22rpx;
+}
+.report-box{
+  margin-bottom:16rpx;
+  background-color: #fff;
+  padding:25rpx 30rpx;
+  border-radius: 20rpx;
+  height:72rpx;
+  display: flex;
+  box-shadow:0 2px 4px rgba(0, 0, 0, .1) 
+}
+.report-box .report-img{
+  width:60rpx;
+  padding-top:7rpx;
+  margin-right:24rpx;
+}
+.report-box .report-img .image{
+  width:60rpx;
+  height:60rpx;
+  border-radius: 50%;
+}
+.report-box .report-content{
+  flex:1;
+  color:#666;
+  margin-right:50rpx;
+  overflow:hidden;
+} 
+.report-box .report-content .title{
+  font-size:28rpx;
+  color:#333;
+} 
+.report-box .report-content .content{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:24rpx;
+} 
+.report-box .report-icon{
+  width:14rpx;
+  vertical-align: middle;
+  padding-top:6rpx;
+} 
+.report-box .report-icon .imageIcon{
+  width:14rpx;
+} 

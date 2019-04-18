@@ -28,13 +28,53 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 4,
+			"list": [
+				{
+					"id": -1,
+					"name": "报表详情页",
+					"pathName": "pages/reportDatail/reportDatail",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定ez",
+					"pathName": "pages/bindEz/bindEz",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加报表",
+					"pathName": "pages/addReport/addReport",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "详情",
+					"pathName": "pages/reportDatail/reportDatail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "aboutus",
+					"pathName": "pages/aboutUs/aboutUs",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

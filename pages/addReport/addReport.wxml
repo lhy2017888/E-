@@ -1,0 +1,29 @@
+<!--pages/addReport/addReport.wxml-->
+<view class='container report-list'>
+  <view class='report-container' wx:if="{{bingedEz}}">
+    <block wx:for='{{tableList}}' wx:key='id'>
+      <view class='report-box'>
+        <view class='report-img'>
+          <image class='image' mode="aspectFill" src="/images/72.png" />
+        </view>
+        <view class='report-content'>
+          <view class='title'>{{item.name}}</view>
+          <view class='content'>{{item.note}}</view>
+        </view>
+        <view class='report-icon'>
+          <text class='open_status' wx:if='{{item.open_status}}'>已开通</text>
+          <text class='open_status' wx:else>已关闭</text>
+          <button class='report-open' wx:if='{{item.open_status}}' type="primary" size="mini" data-item='{{item}}' plain="true" bindtap="reportOpen">
+            关闭
+          </button>
+          <button class='report-open' wx:else type="primary" size="mini" plain="true" data-item='{{item}}' bindtap="reportOpen">
+            开通
+          </button>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='report-null' wx:else>
+    <button class='userInfo-bind-btn' bindtap='bindEz' type='primary'>绑定E助查看报表</button>
+  </view>
+</view>

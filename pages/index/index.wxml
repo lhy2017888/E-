@@ -1,17 +1,30 @@
 <!-- index.wxml -->
 <view class="container">
-  <view class="swiper-container">
-    <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
-      <block wx:for="{{banners}}" wx:key="id">
-        <swiper-item>
-          <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}_m" class="slide-image" width="750rpx" height="500rpx" />
-        </swiper-item>
-      </block>
-    </swiper>
-    <view class="dots">
-      <block wx:for="{{banners}}" wx:key="unique">
-        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
-      </block>
+  <swiper-component></swiper-component>
+  <view class="phone-line">
+    <text>客服热线：4000-820-700</text>
+  </view>
+  <view class='report-container' wx:if="{{bingedEz}}">
+    <block wx:if='{{tableList.length}}' wx:for='{{tableList}}' wx:key='id'>
+      <view class='report-box' bindtap="reportDetail" data-id="{{item.id}}" data-title="{{item.name}}">
+        <view class='report-img'>
+          <image class='image' mode="aspectFill" src="/images/72.png" />
+        </view>
+        <view class='report-content'>
+          <view class='title'>{{item.name}}</view>
+          <view class='content'>{{item.note}}</view>
+        </view>
+        <view class='report-icon'>
+          <image src="/images/arrow-right.png" class="imageIcon" mode="widthFix" />
+        </view>
+      </view>
+    </block>
+    <view class='report-add' bindtap='addReport'>
+      <image src="/images/add.png" class="imageAdd" mode="widthFix" />
+      <text class='text-btn'>添加报表</text>
     </view>
+  </view>
+  <view class='report-null' wx:else  bindtap='bindEz'>
+    <text class='text-btn'>绑定E助查看报表</text>
   </view>
 </view>

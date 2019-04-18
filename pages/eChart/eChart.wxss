@@ -1,0 +1,13 @@
+/* pages/eChart/eChart.wxss */
+@import "/pages/weui/base/datanavbar.wxss";
+page{
+  background-color: #fff;
+}
+.container{
+  width:750rpx;
+  height:1180rpx;
+}
+.ec-canvas {
+  width: 100%;
+  height: 100%;
+}

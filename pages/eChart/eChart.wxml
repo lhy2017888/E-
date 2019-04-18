@@ -1,0 +1,30 @@
+<!--pages/eChart/eChart.wxml-->
+<view class='container'>
+  <view class="type-container">
+    <view class="type-navbar">
+      <view class="type-box {{activeCategoryId == item.id ? 'type-item-on' : ''}}" wx:for="{{categories}}" data-current="{{item.id}}" wx:key="id" bindtap="tabClick">
+        <view class="type-navbar-item">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <swiper current="{{activeCategoryId}}" class='swiper' style="height:540px" duration="300" bindchange="bindchange">
+    <swiper-item>
+      <ec-canvas class='ec-canvas' id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </swiper-item>
+    <swiper-item>
+      <ec-canvas class='ec-canvas' id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </swiper-item>
+    <swiper-item>
+      <ec-canvas class='ec-canvas' id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </swiper-item>
+    <swiper-item>
+      <ec-canvas class='ec-canvas' id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+    </swiper-item>
+  </swiper>
+  <!-- <ec-canvas class='ec-canvas' id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas> -->
+  <!-- <view class='eCharts-show'>
+      <image class='eCharts-img' src='/images/up.png' mode='widthFix' />
+    </view> -->
+</view>

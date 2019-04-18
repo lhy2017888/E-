@@ -1,0 +1,54 @@
+<!--pages/reportDatail/reportDatail.wxml-->
+<view class='container'>
+  <view class="type-container">
+    <view class="type-navbar">
+      <view class="type-box {{activeCategoryId == item.id ? 'type-item-on' : ''}}" wx:for="{{categories}}" data-current="{{item.id}}" wx:key="id" bindtap="tabClick">
+        <view class="type-navbar-item">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <swiper current="{{activeCategoryId}}" class='swiper' style="height:{{ReportHeight}}" duration="300" bindchange="bindchange">
+    <swiper-item>
+      <view class='swiper_con'>
+        <view class='report-data'>
+          <order-component report-allN="{{reportNumAll}}" report-array='{{reportDataArr}}'></order-component>
+        </view>
+        <view class='report-more' wx:if="{{ifShowMore}}">
+          <text bindtap='reportMore'>查看更多</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class='swiper_con'>
+        <view class='report-data'>
+          <order-component report-allN="{{reportNumAll}}" report-array='{{reportDataArr}}'></order-component>
+        </view>
+        <view class='report-more' wx:if="{{ifShowMore}}">
+          <text bindtap='reportMore'>查看更多</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class='swiper_con'>
+        <view class='report-data'>
+          <order-component report-allN="{{reportNumAll}}" report-array='{{reportDataArr}}'></order-component>
+        </view>
+        <view class='report-more' wx:if="{{ifShowMore}}">
+          <text bindtap='reportMore'>查看更多</text>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class='swiper_con'>
+        <view class='report-data'>
+          <order-component report-allN="{{reportNumAll}}" report-array='{{reportDataArr}}'></order-component>
+        </view>
+        <view class='report-more' wx:if="{{ifShowMore}}">
+          <text bindtap='reportMore'>查看更多</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

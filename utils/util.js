@@ -1,19 +1,34 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
 module.exports = {
-  formatTime: formatTime
+  //今日
+  todayData() {
+    let date = new Date();
+    return {
+      beginTime: Math.floor(new Date(date.toLocaleDateString()).getTime() / 1000),
+      endTime: Math.floor(date.getTime() / 1000)
+    }
+  },
+  //昨日
+  yesterdayData() {
+    let date = new Date();
+    return {
+      beginTime: Math.floor((new Date(date.toLocaleDateString()).getTime() - 24 * 60 * 60 * 1000) / 1000),
+      endTime: Math.floor((new Date(date.toLocaleDateString()).getTime() - 1) / 1000)
+    }
+  },
+  //本周
+  weekData() {
+    let date = new Date();
+    return {
+      beginTime: Math.floor((new Date(date.toLocaleDateString()).getTime() - 24 * 60 * 60 * 1000 * date.getDay()) / 1000),
+      endTime: Math.floor(date.getTime() / 1000)
+    }
+  },
+  //本月
+  mouthData() {
+    let date = new Date();
+    return {
+      beginTime: Math.floor((new Date(date.toLocaleDateString()).getTime() - 24 * 60 * 60 * 1000 * (date.getDate()-1)) / 1000),
+      endTime: Math.floor(date.getTime() / 1000)
+    }
+  }
 }

@@ -1,0 +1,100 @@
+/* pages/components/order/order.wxss */
+
+.report-box {
+  width: 710rpx;
+  padding: 20rpx 20rpx 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12rpx;
+}
+
+.report-box:last-of-type {
+  margin-bottom: 0;
+}
+
+.report-title {
+  position: relative;
+}
+.report-text{
+  padding-left: 20rpx;
+  border-left: 8rpx solid #053bcf;
+  height: 36rpx;
+  line-height:36rpx;
+  font-size: 34rpx;
+  margin:15rpx 0;
+}
+.report-datail {
+  position: absolute;
+  right:10rpx;
+  top:0;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.report-datail .number {
+  text-align: center;
+  color: red;
+  font-size: 46rpx;
+}
+
+.table {
+  margin-top: 130rpx;
+  width: 100%;
+  /* border-collapse 属性设置表格的边框是否被合并为一个单一的边框，解决相邻单元格边框未合并导致有些边框变粗的视觉效果 */
+  border-collapse: collapse;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.table-tr {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+}
+
+.table-tr.flxed {
+  width: 730rpx;
+  position: fixed;
+  top: 110rpx;
+  left: 10rpx;
+  right: 10rpx;
+}
+
+.table-th {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #efefef;
+  font-size: 28rpx;
+  height: 85rpx;
+  padding-top:15rpx;
+}
+.table-th .num{
+  font-weight: normal;
+}
+.table-th .num .clo{
+  color:red;
+}
+.table-td {
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 26rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.table-td.flextd, .table-th.flextd {
+  flex: 1;
+}
+
+.table-td.tdWid, .table-th.tdWid {
+  width: 250rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,36 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<view class='aboutus-container'>
+  <view class='aboutus-wrap'>
+    <view class='logo-wrap'>
+      <image src="/images/e-logo.png" class="e-logo" mode="widthFix" />
+      <view>
+        <text>微报表</text>
+      </view>
+    </view>
+    <view class='company-profile'>
+      <view class='title'>
+        <text>公司简介</text>
+      </view>
+      <view class='content'>
+        <text>安徽维思德信息技术有限公司是一家电子商务软件技术与应用服务的提供商，专注为电商相关企业提供电子商务管理信息化整体解决方案。</text>
+      </view>
+    </view>
+    <view class='company-phone'>
+      <view class='phone-wrap'>
+        <view>客服电话</view>
+        <view class='clo' bindtap='phoneCall'>4000-820-700</view>
+      </view>
+      <view class='phone-wrap'>
+        <view>企业QQ</view>
+        <view>4000820700</view>
+      </view>
+      <view class='phone-wrap'>
+        <view>客服邮箱</view>
+        <view>xiebo@wisder.com</view>
+      </view>
+    </view>
+  </view>
+  <view class='compary-name'>
+    <text>安徽维思德信息技术有限公司</text>
+  </view>
+</view>

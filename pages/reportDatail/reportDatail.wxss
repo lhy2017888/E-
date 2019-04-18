@@ -1,0 +1,22 @@
+/* pages/reportDatail/reportDatail.wxss */
+@import "/pages/weui/base/datanavbar.wxss";
+.swiper{
+  background-color: #fff;
+  overflow: hidden
+}
+.swiper_con{
+  height:100%;
+  display: flex;
+  flex-direction:column;
+}
+.report-data{
+  flex: 1;
+  overflow:hidden;
+}
+.report-more{
+  height:100rpx;
+  font-size:30rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color:blue;
+}
